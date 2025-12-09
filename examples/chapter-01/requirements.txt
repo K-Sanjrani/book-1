@@ -1,0 +1,32 @@
+# Python dependencies for Physical AI Book - Chapter 1 Examples
+# Pinned to known-good versions for reproducibility (see FR-024)
+# Last updated: 2025-12-09
+
+# Testing framework
+pytest==7.4.0
+pytest-cov==4.1.0
+
+# Hardware interaction (cross-platform compatible)
+# For Raspberry Pi, install: sudo apt-get install python3-rpi.gpio
+# For simulator mode, standard library mocking is used
+RPi.GPIO==0.7.0; sys_platform == 'linux'
+
+# Sensor libraries (simulator-compatible)
+Adafruit-DHT==1.2.3; sys_platform == 'linux'
+
+# Data handling
+numpy==1.24.3  # For optional data analysis in extended examples
+
+# Standard library imports used (no additional packages needed):
+# - json (for config files)
+# - time (for timing/delays)
+# - csv (for data logging)
+# - os (for file operations)
+# - unittest.mock (for testing)
+
+# Notes:
+# - RPi.GPIO and Adafruit-DHT are only installed on Linux (Raspberry Pi)
+# - For development on macOS/Windows, mock sensors are used automatically
+# - If you get import errors on non-Pi systems, that's expected - use simulator mode
+# - To upgrade: pip install -r requirements.txt --upgrade
+# - To check versions: pip list | grep -E "pytest|RPi|Adafruit"
